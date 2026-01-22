@@ -97,9 +97,9 @@ test('transforms Youtube videos and tweets', async () => {
   const result = await transformFixtureMdFile('basics', 'Youtube video and tweet.md')
 
   expect(result.content).toMatchInlineSnapshot(`
-    "import Twitter from 'starlight-obsidian/components/Twitter.astro'
+    "import Twitter from '@asterismono/starlight-obsidian/components/Twitter.astro'
 
-    import Youtube from 'starlight-obsidian/components/Youtube.astro'
+    import Youtube from '@asterismono/starlight-obsidian/components/Youtube.astro'
 
     This is the first sentence.
 

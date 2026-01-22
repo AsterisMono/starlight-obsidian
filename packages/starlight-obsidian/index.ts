@@ -188,7 +188,7 @@ function makeStarlightObsidianPlugin(
           }
 
           if (config.tableOfContentsOverview === 'title') {
-            addRouteMiddleware({ entrypoint: 'starlight-obsidian/middleware' })
+            addRouteMiddleware({ entrypoint: '@asterismono/starlight-obsidian/middleware' })
           }
 
           const updatedStarlightConfig: Partial<StarlightUserConfig> = {
@@ -249,7 +249,7 @@ function overrideStarlightComponent(
   }
 
   return {
-    [component]: `starlight-obsidian/overrides/${component}.astro`,
+    [component]: `@asterismono/starlight-obsidian/overrides/${component}.astro`,
   }
 }
 

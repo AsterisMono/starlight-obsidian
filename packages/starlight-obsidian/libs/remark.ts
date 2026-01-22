@@ -166,11 +166,11 @@ function handleImports(tree: Root, file: VFile) {
   const imports: Html[] = []
 
   if (file.data.includeTwitterComponent) {
-    imports.push(createMdxNode(`import Twitter from 'starlight-obsidian/components/Twitter.astro'`))
+    imports.push(createMdxNode(`import Twitter from '@asterismono/starlight-obsidian/components/Twitter.astro'`))
   }
 
   if (file.data.includeYoutubeComponent) {
-    imports.push(createMdxNode(`import Youtube from 'starlight-obsidian/components/Youtube.astro'`))
+    imports.push(createMdxNode(`import Youtube from '@asterismono/starlight-obsidian/components/Youtube.astro'`))
   }
 
   if (file.data.assetImports) {
@@ -429,17 +429,17 @@ function handleBlockquotes(node: Blockquote, context: VisitorContext) {
         },
         ...(hasTitle
           ? otherGrandChildren.flatMap<PhrasingContent>((otherGrandChild) => {
-              if (didEndAsideTitle) return otherGrandChild
-              if (otherGrandChild.type !== 'text') return otherGrandChild
-              const containsNewLine = /\r?\n/.test(otherGrandChild.value)
-              if (!containsNewLine) return otherGrandChild
-              const [firstLine, ...otherLines] = otherGrandChild.value.split(/\r?\n/)
-              didEndAsideTitle = true
-              return [
-                { type: 'text', value: `${firstLine}]\n` },
-                { type: 'text', value: otherLines.join('\n') },
-              ]
-            })
+            if (didEndAsideTitle) return otherGrandChild
+            if (otherGrandChild.type !== 'text') return otherGrandChild
+            const containsNewLine = /\r?\n/.test(otherGrandChild.value)
+            if (!containsNewLine) return otherGrandChild
+            const [firstLine, ...otherLines] = otherGrandChild.value.split(/\r?\n/)
+            didEndAsideTitle = true
+            return [
+              { type: 'text', value: `${firstLine}]\n` },
+              { type: 'text', value: otherLines.join('\n') },
+            ]
+          })
           : otherGrandChildren),
         ...(otherChildren.length === 0 ? [{ type: 'html', value: `\n${asideDelimiter}` } satisfies RootContent] : []),
       ],
@@ -806,7 +806,7 @@ interface Frontmatter {
 }
 
 declare module 'vfile' {
-  interface DataMap extends TransformContext {}
+  interface DataMap extends TransformContext { }
 }
 
 declare module 'unist' {
