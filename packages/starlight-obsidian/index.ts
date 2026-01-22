@@ -196,7 +196,7 @@ function makeStarlightObsidianPlugin(
               ...starlightConfig.components,
               ...overrideStarlightComponent(starlightConfig.components, logger, 'PageTitle'),
             },
-            customCss: [...(starlightConfig.customCss ?? []), 'starlight-obsidian/styles/common'],
+            customCss: [...(starlightConfig.customCss ?? []), '@asterismono/starlight-obsidian/styles/common'],
             sidebar: getSidebarFromConfig(config, starlightConfig.sidebar, sidebarGroup),
           }
 

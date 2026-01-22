@@ -16,7 +16,7 @@
     "@hideoo/starlight-plugins-docs-components": "^0.4.0",
     "astro": "^5.7.4",
     "sharp": "^0.33.5",
-    "starlight-obsidian": "workspace:*"
+    "@asterismono/starlight-obsidian": "workspace:*"
   },
   "engines": {
     "node": ">=18.17.1"
